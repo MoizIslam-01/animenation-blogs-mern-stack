@@ -27,6 +27,7 @@ const CreateBlog = () => {
         title: inputs.title,
         description: inputs.description,
         image: inputs.image,
+        video: inputs.video,
         user: id,
       });
       if (data?.success) {
@@ -58,7 +59,7 @@ const CreateBlog = () => {
             padding={3}
             color="gray"
           >
-            Create A Pots
+            Create A Post
           </Typography>
           <InputLabel
             sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
@@ -98,6 +99,18 @@ const CreateBlog = () => {
             margin="normal"
             variant="outlined"
             required
+          />
+           <InputLabel
+            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+          >
+            Video URL
+          </InputLabel>
+          <TextField
+            name="video"
+            value={inputs.video}
+            onChange={handleChange}
+            margin="normal"
+            variant="outlined"
           />
           <Button type="submit" color="primary" variant="contained">
             SUBMIT

@@ -27,6 +27,7 @@ const Blogs = () => {
             title={blog?.title}
             description={blog?.description}
             image={blog?.image}
+            video={blog?.video}
             username={blog?.user?.username}
             time={blog.createdAt}
           />

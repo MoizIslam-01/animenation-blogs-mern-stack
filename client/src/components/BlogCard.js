@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Box, IconButton } from "@mui/material";
+import { Box,Button, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -17,6 +17,7 @@ export default function BlogCard({
   title,
   description,
   image,
+  video,
   username,
   time,
   id,
@@ -64,11 +65,20 @@ export default function BlogCard({
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {username}
+            
           </Avatar>
         }
-        title={username}
-        subheader={time}
+        title={
+          <Typography variant="h6" sx={{ marginBottom: 1 }}> {/* Adjust margin */}
+            {username}
+          </Typography>
+        }
+        subheader={
+          <Typography variant="subtitle2" color="text.secondary">
+            {time}
+          </Typography>
+        }
+        
       />
       <CardMedia component="img" height="194" image={image} alt="NO IMAGE" />
       <CardContent>
@@ -78,6 +88,18 @@ export default function BlogCard({
         <Typography variant="body2" color="text.secondary">
           Description : {description}
         </Typography>
+        <Button type="watch" color="primary" variant="contained" onClick={()=>{
+          console.log(video);
+          if (video){
+            window.open(video, "_blank");
+          }
+          else{
+            alert("No video Link provided!!");
+          }
+          
+        }}>
+            watch
+          </Button>
       </CardContent>
     </Card>
   );

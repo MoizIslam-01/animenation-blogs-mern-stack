@@ -14,6 +14,10 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: [true, "image is require"],
     },
+    video: {
+      type: String,
+      required:false,
+    },
     user: {
       type: mongoose.Types.ObjectId,
       ref: "User",

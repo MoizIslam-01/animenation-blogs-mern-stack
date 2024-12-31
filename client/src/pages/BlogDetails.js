@@ -18,6 +18,7 @@ const BlogDetails = () => {
           title: data?.blog.title,
           description: data?.blog.description,
           image: data?.blog.image,
+          video: data?.blog.video,
         });
       }
     } catch (error) {
@@ -44,6 +45,7 @@ const BlogDetails = () => {
         title: inputs.title,
         description: inputs.description,
         image: inputs.image,
+        video: inputs.video,
         user: id,
       });
       if (data?.success) {
@@ -76,7 +78,7 @@ const BlogDetails = () => {
             padding={3}
             color="gray"
           >
-            Update A Pots
+            Update A Post
           </Typography>
           <InputLabel
             sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
@@ -116,6 +118,18 @@ const BlogDetails = () => {
             margin="normal"
             variant="outlined"
             required
+          />
+          <InputLabel
+            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+          >
+            Video URL
+          </InputLabel>
+          <TextField
+            name="video"
+            value={inputs.video}
+            onChange={handleChange}
+            margin="normal"
+            variant="outlined"
           />
           <Button type="submit" color="warning" variant="contained">
             UPDATE

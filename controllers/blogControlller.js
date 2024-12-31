@@ -31,7 +31,7 @@ exports.getAllBlogsController = async (req, res) => {
 //Create Blog
 exports.createBlogController = async (req, res) => {
   try {
-    const { title, description, image, user } = req.body;
+    const { title, description, image, video, user } = req.body;
     //validation
     if (!title || !description || !image || !user) {
       return res.status(400).send({
@@ -48,7 +48,7 @@ exports.createBlogController = async (req, res) => {
       });
     }
 
-    const newBlog = new blogModel({ title, description, image, user });
+    const newBlog = new blogModel({ title, description, image, video, user });
     
     await newBlog.save();
     exisitingUser.blogs.push(newBlog._id);
@@ -72,7 +72,7 @@ exports.createBlogController = async (req, res) => {
 exports.updateBlogController = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, image } = req.body;
+    const { title, description, image, video } = req.body;
     const blog = await blogModel.findByIdAndUpdate(
       id,
       { ...req.body },
